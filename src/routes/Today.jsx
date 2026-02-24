@@ -1,6 +1,6 @@
 import WeatherCard from "../components/WeatherCard";
 
-export function Today() {
+export default function Today() {
     return (
         <WeatherCard/>
 
