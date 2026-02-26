@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Today from "./routes/Today";
 import Layout from "./routes/Layout";
+import "leaflet/dist/leaflet.css";
 
 
 function App() {

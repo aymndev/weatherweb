@@ -1,7 +1,16 @@
-import React from "react";
+import WeatherMap from "../components/WeatherMap";
 
-export default function Home() {
+
+export default function Today() {
+
+   
+
     return (
-      <h1>Home Page</h1>
+        <div>
+            <h1>Today</h1>
+
+            <WeatherMap />
+
+        </div>
     );
-  }
+}

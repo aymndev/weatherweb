@@ -15,7 +15,7 @@ export default function Today() {
                 
                 <div className="flex flex flex-col  h-screen justify-center  items-center">
                 
-                <WeatherCard city={city}/>
+                <WeatherCard city={city} />
 
                 </div>
                 
