@@ -6,8 +6,16 @@ import { MdDarkMode } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 
 
-export default  function  NavBar(){
+export default  function  NavBar({setCity}){
+    
     const [input,setInput]=useState("");
+    const handlsearch=()=>{
+        if (input.trim()!==""){
+            setCity(input);
+            setInput("");
+        }
+    
+    }
   
   return (
     <div className='flex justify-between bg-gray-200  items-center justify-center w-full rounded-lg p-2  pr-55'>
@@ -20,11 +28,24 @@ export default  function  NavBar(){
             placeholder='Search for a city...'
             value={input}
             onChange={(e)=>setInput(e.target.value)}
+            onKeyDown={(e)=>{
+                if(e.key === "Enter"){
+                    handlsearch();
+                }
+            }}
+            
             className='w-full bg-white rounded-l-lg p-3 pr-12 focus:outline-none '
             
             />
-            <button   className='bg-white h-12 w-10 flex  items-center justify-center rounded-r-lg pr-5 '>
-                <ImSearch size={20} />
+            <button  
+            
+            
+            className='bg-white h-12 w-10 flex  items-center justify-center rounded-r-lg pr-5 '>
+                <ImSearch 
+                size={20} 
+                onClick={handlsearch}
+                />
+                
             </button>
             </div>
             <div className='flex justify-center items-center gap-5 ml-5  '>

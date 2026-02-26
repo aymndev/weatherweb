@@ -2,27 +2,41 @@ import { useEffect, useState } from "react";
 
 
 
-export default function WeatherCard() {
+export default function WeatherCard({ city }) {
     const [weather, setWeather] = useState(null)
-
-    const search = async (city) => {
-        try {
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_KEY}`;
-            const response = await fetch(url);
-            const data = await response.json();
-            setWeather(data)
-
-        } catch (error) {
-            console.log(error)
-
-        }
+    const [error,setError] = useState(null)
 
 
+
+
+    useEffect(() => {
+        const fetchWeather = async () => {
+            try {
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_KEY}&units=metric`;
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.cod !==200 && data.cod !=="200"){
+                    setError("City not found")
+                    setWeather(null)
+                    return;
+                }
+                setError(null);
+                setWeather(data)
+                
+    
+            } catch (error) {
+                setError("Something went wrong");
+    
+            }
+    
+    
+        };
+        fetchWeather();
+
+    }, [city])
+    if (error){
+        return <p>{error}</p>
     }
-
-
-    useEffect(() => { search("London") }, [])
-
     if (!weather )return <p>Loding...</p>
 
     return (
@@ -48,7 +62,7 @@ export default function WeatherCard() {
                 </div>
                 <div>
                     <div className="flex flex-row p-5  ">
-                        <p className="text-xl pt-2">{(weather?.main?.temp - 273.15).toFixed(1)} °C</p>
+                        <p className="text-xl pt-2">{weather?.main?.temp} °C</p>
 
                         {/*<img className="h-10 w-10 ml-10 mb-6" src="/soleil.png" height={1} width={40} />*/}
 
@@ -74,35 +88,9 @@ export default function WeatherCard() {
                             <p>{`${weather?.visibility} m`}</p>
 
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
-
-
                 </div>
-
-
             </div>
-
-
-
         </div>
-
     )
-
-
 }
