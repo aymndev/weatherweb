@@ -14,8 +14,8 @@ export default function Menu() {
                 </div>
 
                 <nav className=" flex flex-col  text-black gap-5">
-                    <Link  className=" block w-full pl-9 pr-9  py-2 px-4 hover:bg-green-400 rounded-lg transition transforme hover:scale-105 hover:font-bold  " to="/"> Home</Link>
-                    <Link className="block  w-full pl-9 pr-9 py-2 px-4  hover:bg-green-400 rounded-lg transition transforme hover:scale-105 hover:font-bold   "  to="/today"> Today</Link>
+                    <Link  className=" block w-full pl-9 pr-9  py-2 px-4 hover:bg-sky-400 rounded-lg transition transforme hover:scale-105 hover:font-bold  " to="/"> Home</Link>
+                    <Link className="block  w-full pl-9 pr-9 py-2 px-4  hover:bg-sky-400 rounded-lg transition transforme hover:scale-105 hover:font-bold   "  to="/today"> Today</Link>
 
                 </nav>
 

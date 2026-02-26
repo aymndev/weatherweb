@@ -4,10 +4,13 @@ import Menu from "../components/Menu";
 
 export default function Layout() {
   return (
-    <div className="flex">
-      <h1></h1>
+    <div className="flex ">
       <Menu />
-      <Outlet />
+      <div className="flex justify-center w-full h-screen bg-gray-100 m-2">
+           <Outlet  />
+      </div>
+      
+      
     </div>
   );
 }
