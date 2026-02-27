@@ -5,34 +5,42 @@ import { useContext, useEffect, useState } from "react";
 import { WeatherContext } from "../context/WeatherContext";
 
 export default function WeatherCard() {
-    
- 
-
-    const {weather,error}=useContext(WeatherContext)
 
 
 
-    if (error){
+    const { weather, error } = useContext(WeatherContext)
+
+
+
+    if (error) {
         return <p>{error}</p>
     }
-    if (!weather )return <p>Loding...</p>
+    if (!weather) return <p>Loding...</p>
 
     return (
-        <div className="flex items-center text-white  ">
-            <div className="flex flex-col justify-center shadow-[1px_5px_5px_black] bg-gray-100  h-90 w-[655px] p-5 font-bold  transform hover:scale-105 transition-all  duration-300  bg-sky-500 m-[90px] rounded-lg">
+        <div className="flex items-center text-black  ">
+            <div className="flex flex-col justify-center   h-90 w-[655px] p-5 font-bold    border-1 bg-gray-100 m-[90px] rounded-lg">
 
                 <div className="text-xl">
-                    <div className="flex  justify-between  border-b-1 ">
+                    <div className="flex flex-col  justify-between  border-b-1 ">
+                        <p className=" mb-5 p-1 ">Weather in {weather?.name}</p>
+                        <div className="flex flex-row   ">
 
-                        <h1 className=" text-xl p-5 mb-4 border-gray-400" >
-                            {weather?.name}
 
-                        </h1>
-                        <img 
-                            className=" mr-[80px] mt-[5px] h-11 w-13" 
-                            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                            alt="weather icon"
-                        />
+
+                            <p className="  text-3xl pt-7 mr-9 ">{weather?.main?.temp} °C</p>
+
+                            <img
+                                className="  w-[]"
+                                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                                alt="weather icon"
+                            />
+
+                        </div>
+
+
+
+
                     </div>
 
 
@@ -40,28 +48,28 @@ export default function WeatherCard() {
                 </div>
                 <div>
                     <div className="flex flex-row p-5  ">
-                        <p className="text-xl pt-2">{weather?.main?.temp} °C</p>
+
 
                         {/*<img className="h-10 w-10 ml-10 mb-6" src="/soleil.png" height={1} width={40} />*/}
 
 
                     </div>
-                    <div className="flex flex-row gap-20 pl-5">
-                        <div>
+                    <div className="flex flex-row gap-20 pl-5  ">
+                        <div className="border-1 p-2 rounded-lg bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
                             <p>Speed</p>
                             <p>{`${weather?.wind?.speed} km/h`}</p>
-                        </div>
-                        <div>
+                        </div >
+                        <div className="border-1 p-2 rounded-lg bg-sky-200 bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
                             <p>Humidity</p>
                             <p>{`${weather?.main?.humidity} %`}</p>
 
                         </div>
-                        <div>
+                        <div className="border-1 p-2 rounded-lg bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
                             <p>Pressure</p>
                             <p>{`${weather?.main?.pressure} hPa`}</p>
 
                         </div>
-                        <div>
+                        <div className="border-1 p-2 rounded-lg bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
                             <p>visibility</p>
                             <p>{`${weather?.visibility} m`}</p>
 
