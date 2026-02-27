@@ -1,39 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 
 
-export default function WeatherCard({ city }) {
-    const [weather, setWeather] = useState(null)
-    const [error,setError] = useState(null)
+import { WeatherContext } from "../context/WeatherContext";
 
-
-
-
-    useEffect(() => {
-        const fetchWeather = async () => {
-            try {
-                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_KEY}&units=metric`;
-                const response = await fetch(url);
-                const data = await response.json();
-                if (data.cod !==200 && data.cod !=="200"){
-                    setError("City not found")
-                    setWeather(null)
-                    return;
-                }
-                setError(null);
-                setWeather(data)
-                
+export default function WeatherCard() {
     
-            } catch (error) {
-                setError("Something went wrong");
-    
-            }
-    
-    
-        };
-        fetchWeather();
+ 
 
-    }, [city])
+    const {weather,error}=useContext(WeatherContext)
+
+
+
     if (error){
         return <p>{error}</p>
     }
@@ -53,7 +31,7 @@ export default function WeatherCard({ city }) {
                         <img 
                             className=" mr-[80px] mt-[5px] h-11 w-13" 
                             src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                            alr="weather icon"
+                            alt="weather icon"
                         />
                     </div>
 

@@ -4,9 +4,12 @@ import { ImSearch } from "react-icons/im";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
+import { useContext } from "react";
+import { WeatherContext } from "../context/WeatherContext";
 
 
-export default  function  NavBar({setCity}){
+export default  function  NavBar(){
+    const {setCity}=useContext(WeatherContext);
     
     const [input,setInput]=useState("");
     const handlsearch=()=>{
