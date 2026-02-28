@@ -15,7 +15,7 @@ export default function Today() {
 
     return (
         <div className="flex flex-row justify-between  bg-gray-100 gap-5 h-screen w-auto">
-            <div className="flex flex-col pl-5">
+            <div className="flex flex-col pl-15 pt-5">
                 <h1 className="text-3xl font-bold p-5 flex flex -row"><LiaCitySolid className="m-1 mr-1" /> {weather?.name}</h1>
 
                 <div className="flex flex-row gap-9 p-2 border-t-1 ">

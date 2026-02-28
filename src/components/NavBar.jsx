@@ -6,9 +6,11 @@ import { MdDarkMode } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { useContext } from "react";
 import { WeatherContext } from "../context/WeatherContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 
 export default  function  NavBar(){
+    const { isDark, toggleTheme } = useContext(ThemeContext);
     const {setCity}=useContext(WeatherContext);
     
     const [input,setInput]=useState("");
@@ -21,7 +23,7 @@ export default  function  NavBar(){
     }
   
   return (
-    <div className='flex justify-between bg-gray-200  items-center justify-center w-full rounded-lg p-2  pr-55'>
+    <div className={`flex justify-between bg-gray-200  items-center justify-center w-full rounded-lg p-2  pr-55 `}>
         
         <div className=' flex relative w-full flex flex-row mr-20 ml-35 pl-80 justify-center items-center'>
             <div className='flex flex-row transform hover:scale-105 transition-all  duration-300'>
@@ -52,9 +54,23 @@ export default  function  NavBar(){
             </button>
             </div>
             <div className='flex justify-center items-center gap-5 ml-5  '>
-                <MdLightMode size={20} className='hover:bg-orange-300 hover:rouded-xl hover:rounded-xl m-5 transform hover:scale-105 transition-all  duration-300 ' />
+                {isDark ? (
+                    <MdLightMode 
+                    size={20}
+                    onClick={toggleTheme}
+                    
+                    className='cursor-pointer hover:bg-orange-300 hover:rouded-xl hover:rounded-xl m-5 transform hover:scale-105 transition-all  duration-300 ' />
+
+                ):(
+                    <MdDarkMode size={20} 
+                    onClick={toggleTheme}
+                    className=' cursor-pointer hover:bg-gray-400 hover:rouded-xl hover:rounded-xl m-5 transform hover:scale-105 transition-all  duration-300 '  />
+
+                )
+            }
                 
-                <MdDarkMode size={20} className='hover:bg-gray-400 hover:rouded-xl hover:rounded-xl m-5 transform hover:scale-105 transition-all  duration-300 '  />
+                
+                
 
 
             </div>

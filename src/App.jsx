@@ -1,16 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ThemeProvider from "./context/ThemeContext";
 import Home from "./routes/Home";
 import Today from "./routes/Today";
 import Layout from "./routes/Layout";
 import "leaflet/dist/leaflet.css";
 import WeatherProvider from "./context/WeatherContext";
+import { useContext } from "react";
+import { ThemeContext } from "./context/ThemeContext";
 
 
-function App() {
+function AppContent() {
+  const { isDark } = useContext(ThemeContext);
 
 
   return (
-    <WeatherProvider>
+    <div  className={isDark ?"dark min-h-screen":"min-h-screen"}>
+          <WeatherProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -23,7 +28,19 @@ function App() {
     </WeatherProvider>
 
 
+    </div>
+
+
   )
+}
+function App() {
+  return (
+    <ThemeProvider>
+      <WeatherProvider>
+        <AppContent />
+      </WeatherProvider>
+    </ThemeProvider>
+  );
 }
 
 export default App
