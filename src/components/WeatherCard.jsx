@@ -19,11 +19,12 @@ export default function WeatherCard() {
 
     return (
         <div className="flex items-center text-black  ">
-            <div className="flex flex-col justify-center   h-90 w-[655px] p-5 font-bold    border-1 bg-gray-100 m-[90px] rounded-lg">
+            <div className="flex flex-col justify-center   h-100 w-[655px] p-5 font-bold    border-1 bg-gray-100 m-[90px] rounded-lg">
 
                 <div className="text-xl">
                     <div className="flex flex-col  justify-between  border-b-1 ">
-                        <p className=" mb-5 p-1 ">Weather in {weather?.name}</p>
+                        <p className="  m-1 p-1 ">Weather in {weather?.name}</p>
+                        <p className="  pl-2">{weather?.sys?.country}</p>
                         <div className="flex flex-row   ">
 
 
@@ -31,7 +32,7 @@ export default function WeatherCard() {
                             <p className="  text-3xl pt-7 mr-9 ">{weather?.main?.temp} °C</p>
 
                             <img
-                                className="  w-[]"
+                                className=""
                                 src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                                 alt="weather icon"
                             />
@@ -54,22 +55,22 @@ export default function WeatherCard() {
 
 
                     </div>
-                    <div className="flex flex-row gap-20 pl-5  ">
-                        <div className="border-1 p-2 rounded-lg bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
+                    <div className="flex flex-row gap-20 pl-5 text-white  ">
+                        <div className="border-1 p-2 rounded-lg bg-black transform hover:scale-105 transition-all  duration-300 ">
                             <p>Speed</p>
                             <p>{`${weather?.wind?.speed} km/h`}</p>
                         </div >
-                        <div className="border-1 p-2 rounded-lg bg-sky-200 bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
+                        <div className="border-1 p-2 rounded-lg bg-black transform hover:scale-105 transition-all  duration-300 ">
                             <p>Humidity</p>
                             <p>{`${weather?.main?.humidity} %`}</p>
 
                         </div>
-                        <div className="border-1 p-2 rounded-lg bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
+                        <div className="border-1 p-2 rounded-lg bg-black transform hover:scale-105 transition-all  duration-300 ">
                             <p>Pressure</p>
                             <p>{`${weather?.main?.pressure} hPa`}</p>
 
                         </div>
-                        <div className="border-1 p-2 rounded-lg bg-sky-200 transform hover:scale-105 transition-all  duration-300 ">
+                        <div className="border-1 p-2 rounded-lg bg-black transform hover:scale-105 transition-all  duration-300 ">
                             <p>visibility</p>
                             <p>{`${weather?.visibility} m`}</p>
 

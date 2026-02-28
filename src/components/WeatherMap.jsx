@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import { useContext, useEffect } from "react";
 import { WeatherContext } from "../context/WeatherContext";
 import { useMap } from "react-leaflet";
+import { LiaCitySolid } from "react-icons/lia"
 
 import L from "leaflet";
 
@@ -36,13 +37,13 @@ export default function WeatherMap() {
 
 
     return (
-        <div className="border-1">
+        <div className="border-1 mt-5 mr-5">
 
 
             <MapContainer
                 center={[lat, lon]} // Morocco Fes example
                 zoom={10}
-                style={{ height: "500px", width: "900px" }}
+                style={{ height: "490px", width: "800px" }}
 
             >
                 <TileLayer
@@ -50,9 +51,10 @@ export default function WeatherMap() {
                 />
                 <ChangeMapView lat={lat} lon={lon} />
                 <Marker position={[lat, lon]}>
-                    <Popup>
-                        <h3>{weather.name}</h3>
-                        <p>🌡 {weather.main.temp} °C</p>
+                    <Popup className="flex-1">
+                        <LiaCitySolid />
+                        <h3 className="flex-1">{weather.name}</h3>
+                        <p className="flex-1">🌡 {weather.main.temp} °C</p>
                     </Popup>
                 </Marker>
 

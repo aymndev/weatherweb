@@ -19,6 +19,7 @@ export default function WeatherProvider({children}){
                 }
                 setError(null);
                 setWeather(data)
+                console.log(data);
                 
     
             } catch (err) {
