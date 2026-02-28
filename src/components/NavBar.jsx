@@ -23,7 +23,7 @@ export default  function  NavBar(){
     }
   
   return (
-    <div className={`flex justify-between bg-gray-200  items-center justify-center w-full rounded-lg p-2  pr-55 `}>
+    <div className={` ${isDark ? "bg-gray-900  text-white " : "bg-gray-200 "} flex justify-between bg-gray-200  items-center justify-center w-full rounded-lg p-2  pr-55 `}>
         
         <div className=' flex relative w-full flex flex-row mr-20 ml-35 pl-80 justify-center items-center'>
             <div className='flex flex-row transform hover:scale-105 transition-all  duration-300'>
@@ -45,7 +45,7 @@ export default  function  NavBar(){
             <button  
             
             
-            className='bg-white h-12 w-10 flex  items-center justify-center rounded-r-lg pr-5 '>
+            className={`${isDark ? "  text-black " : " text-black "} bg-white h-12 w-10 flex   items-center justify-center rounded-r-lg pr-5 `} >
                 <ImSearch 
                 size={20} 
                 onClick={handlsearch}
@@ -53,7 +53,7 @@ export default  function  NavBar(){
                 
             </button>
             </div>
-            <div className='flex justify-center items-center gap-5 ml-5  '>
+            <div className={`  flex justify-center items-center gap-5 ml-5` }>
                 {isDark ? (
                     <MdLightMode 
                     size={20}

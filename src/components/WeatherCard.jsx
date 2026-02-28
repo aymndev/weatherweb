@@ -1,11 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-
-
-
 import { WeatherContext } from "../context/WeatherContext";
+import { ThemeContext } from "../context/ThemeContext";
+
+
+
+
+
 
 export default function WeatherCard() {
 
+    const {isDark}=useContext(ThemeContext)
 
 
     const { weather, error } = useContext(WeatherContext)
@@ -18,7 +22,7 @@ export default function WeatherCard() {
     if (!weather) return <p>Loding...</p>
 
     return (
-        <div className="flex items-center text-black  ">
+        <div className={` ${isDark?"bg-gray-900  text-white " : "bg-gray-200 "}flex items-center text-black `}>
             <div className="flex flex-col justify-center   h-100 w-[655px] p-5 font-bold    border-1 bg-gray-100 m-[90px] rounded-lg">
 
                 <div className="text-xl">
