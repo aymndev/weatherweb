@@ -3,6 +3,8 @@ import { createContext,useState,useEffect } from "react";
 
 export const WeatherContext=createContext();
 export default function WeatherProvider({children}){
+    
+    
     const [weather,setWeather]=useState(null);
     const [city,setCity]=useState("London");
     const [error,setError]=useState(null);
