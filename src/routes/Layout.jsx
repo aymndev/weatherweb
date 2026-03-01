@@ -10,8 +10,14 @@ export default function Layout() {
     <div className="flex ">
 
             <Menu />
-            <div className="flex justify-center w-full h-screen bg-gray-100 m-2">
-              <div className=" flex flex-col w-full h-full">
+            <div className=" relative flex justify-center w-screen h-screen bg-gray-100 bg-center "
+               style={{
+                backgroundImage:"url('sky-with-cloud.jpg')"
+            }}
+            
+            >
+              <div className="absolute inset-0 bg-black/40 "></div>
+              <div className=" relative z-10  flex flex-col w-full h-full">
                 <NavBar setCity={setCity} />
                 <Outlet />
 

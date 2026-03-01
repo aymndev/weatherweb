@@ -23,7 +23,7 @@ export default  function  NavBar(){
     }
   
   return (
-    <div className={` ${isDark ? "bg-gray-900  text-white " : "bg-gray-200 "} flex justify-between bg-gray-200  items-center justify-center w-full rounded-lg p-2  pr-55 `}>
+    <div className={` ${isDark ? "bg-sky-800  text-white " : "bg-sky-800 "} flex justify-between bg-gray-200  items-center justify-center w-[90%] ml-20 rounded-lg p-2  pr-55 `}>
         
         <div className=' flex relative w-full flex flex-row mr-20 ml-35 pl-80 justify-center items-center'>
             <div className='flex flex-row transform hover:scale-105 transition-all  duration-300'>

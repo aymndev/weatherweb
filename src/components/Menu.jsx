@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Menu() {
     return (
-        <div className="bg-gray-200 h-screen w-[15%] rounded-r-xl  mr-1">
+        <div className="bg-sky-800 h-screen w-[15%] ">
             <div className="flex flex-col justify-center items-center pt-5 text-center">
                 <div className='flex items-center  mb-5 flex-col    w-full border-b-[1px]  '>
                     <h1 className='text-xl font-bold m-5'>Weather</h1>

@@ -37,13 +37,13 @@ export default function WeatherMap() {
 
 
     return (
-        <div className="border-1 mt-5 mr-5">
+        <div className="">
 
 
             <MapContainer
-                center={[lat, lon]} // Morocco Fes example
+                center={[lat, lon]}
                 zoom={10}
-                style={{ height: "490px", width: "800px" }}
+                style={{ height: "350px", width: "800px" }}
 
             >
                 <TileLayer
