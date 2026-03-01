@@ -1,17 +1,136 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🌤️ Weather App (React + Vite)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a **Weather Application** built using **React**, **Vite**, **Tailwind CSS**, and **OpenWeather API**.
+The application allows users to search for a city and get real-time weather information such as temperature, humidity, and wind speed.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔍 Search weather by city name
+- 🌡️ Real-time weather data
+- 🧠 Context API for state management
+- 🔐 Environment variables for API security
+- 📱 Responsive UI using Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# weatherweb
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| React | UI Framework |
+| Vite | Build Tool |
+| Tailwind CSS | Styling |
+| Context API | State Management |
+| OpenWeather API | Weather Data |
+| Fetch API | HTTP Requests |
+
+---
+
+## 📁 Project Structure
+
+```
+my-react-app/
+├── src/
+│   ├── components/
+│   ├── context/
+│   ├── pages/
+│   ├── App.jsx
+│   └── main.jsx
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone 
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create environment variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_WEATHER_KEY=your_openweather_api_key
+```
+
+> ⚠️ **Important:** The variable name must start with `VITE_` because Vite is used.
+
+---
+
+## 🚀 Running the Project
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open your browser at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## ☁️ Deployment (Vercel)
+
+When deploying to **Vercel**:
+
+1. Go to your [Vercel Dashboard](https://vercel.com/dashboard)
+2. Open your project **Settings**
+3. Navigate to **Environment Variables** and add:
+
+```
+Name:  VITE_WEATHER_KEY
+Value: Your API Key
+```
+
+4. **Redeploy** the project for changes to take effect.
+
+---
+
+## 🔐 Environment Variables
+
+This project uses environment variables to keep your API key secure.
+
+- ❌ Do **not** push your `.env` file to GitHub.
+- ✅ Make sure `.gitignore` contains the following:
+
+```
+.env
+```
+
+---
+
+## 🔮 Future Improvements
+
+- [ ] Add 7-day forecast
+- [ ] Add weather icons
+- [ ] Add dark mode toggle
+- [ ] Add location-based weather detection
+- [ ] Improve UI animations
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
