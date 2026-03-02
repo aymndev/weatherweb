@@ -56,20 +56,63 @@ export default function WeatherMap() {
 
             <MapContainer
                 center={[lat, lon]}
-                zoom={1}
-                style={{ height: "350px", width: "800px" }}
+                zoom={20}
+                style={{ height: "350px", width: "800px", position: "relative" }}
 
             >
+
+
+                {/* Legend */}
+                <div className="absolute bottom-5 left-5 bg-white/80 p-3 rounded-lg text-sm z-[1000]">
+                    <p className="font-bold mb-2">🌧 Precipitation Intensity</p>
+
+                    <div className="flex items-center gap-2">
+                        <span className="w-4 h-4 bg-green-300 inline-block"></span>
+                        <span>Very light rain</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="w-4 h-4 bg-green-600 inline-block"></span>
+                        <span>Light continuous rain</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="w-4 h-4 bg-yellow-400 inline-block"></span>
+                        <span>Moderate rain</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="w-4 h-4 bg-orange-500 inline-block"></span>
+                        <span>Heavy rain</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="w-4 h-4 bg-red-600 inline-block"></span>
+                        <span>Torrential rain</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="w-4 h-4 bg-purple-600 inline-block"></span>
+                        <span>Extreme precipitation</span>
+                    </div>
+                </div>
+
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution="&copy; OpenStreetMap contributors"
                 />
+
                 <TileLayer
                     url={`https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${API_KEY}`}
-                    opacity={0.4}
+                    opacity={0.7}
                 />
+
                 <TileLayer
                     url={`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${API_KEY}`}
+                    opacity={0.8}
+                />
+
+                <TileLayer
+                    url={`https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${API_KEY}`}
                     opacity={0.6}
                 />
 
