@@ -56,7 +56,7 @@ export default function WeatherMap() {
 
             <MapContainer
                 center={[lat, lon]}
-                zoom={7}
+                zoom={1}
                 style={{ height: "350px", width: "800px" }}
 
             >

@@ -7,26 +7,40 @@ export default function WeatherProvider({children}){
     
     const [weather,setWeather]=useState(null);
     const [city,setCity]=useState("London");
+    const [forecast,setForecast]=useState(null);
     const [error,setError]=useState(null);
+    const [loading,setLoading]=useState(false);
         useEffect(() => {
         const fetchWeather = async () => {
             try {
-                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_KEY}&units=metric`;
-                const response = await fetch(url);
-                const data = await response.json();
-                if (data.cod !==200 && data.cod !=="200"){
+                setLoading(true);
+                const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_KEY}&units=metric`;
+                const forecastUrl =`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${import.meta.env.VITE_WEATHER_KEY}`;
+
+                const [currentRes,forecastRes] = await Promise.all([
+                    fetch(currentUrl),
+                    fetch(forecastUrl)
+                ]);
+                const currentData = await currentRes.json();
+                const forecastData = await forecastRes.json();
+
+                if ((currentData.cod !==200 && currentData.cod !=="200") || (forecastData.cod !==200 && forecastData.cod !=="200")){
                     setError("City not found")
-                    setWeather(null)
+                  
                     return;
                 }
                 setError(null);
-                setWeather(data)
-                console.log(data);
+                setWeather(currentData)
+                setForecast(forecastData)
+                console.log("Current:", currentData);
+                console.log("Forecast:", forecastData);   
                 
     
             } catch (err) {
                 setError("Something went wrong");
     
+            }finally{
+                setLoading(false);
             }
     
     
@@ -38,9 +52,11 @@ export default function WeatherProvider({children}){
     return(
         <WeatherContext.Provider value={{
             weather,
-            setWeather,
+            forecast,
             city,
-            setCity
+            setCity,
+            error,
+            loading
         }}>
             {children}
 

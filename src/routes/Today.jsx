@@ -2,7 +2,7 @@ import WeatherCard from "../components/WeatherCard";
 import { useContext, useState } from "react";
 import NavBar from "../components/NavBar";
 import { WeatherContext } from "../context/WeatherContext";
-
+import DailyForecast from "../components/DailyForecast";
 
 export default function Today() {
     const { city, setWeather } = useContext(WeatherContext);
@@ -18,6 +18,8 @@ export default function Today() {
                 <WeatherCard city={city} setWeather={setWeather} />
 
             </div>
+
+
 
 
 

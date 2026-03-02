@@ -39,7 +39,7 @@ export default  function  NavBar(){
                 }
             }}
             
-            className='w-full bg-white rounded-l-lg p-3 pr-12 focus:outline-none '
+            className='w-full bg-white text-black rounded-l-lg p-3 pr-12 focus:outline-none '
             
             />
             <button  
@@ -53,7 +53,7 @@ export default  function  NavBar(){
                 
             </button>
             </div>
-            <div className={`  flex justify-center items-center gap-5 ml-5` }>
+            <div className={`  flex justify-center items-center text-white gap-5 ml-5` }>
                 {isDark ? (
                     <MdLightMode 
                     size={20}
@@ -64,7 +64,7 @@ export default  function  NavBar(){
                 ):(
                     <MdDarkMode size={20} 
                     onClick={toggleTheme}
-                    className=' cursor-pointer hover:bg-gray-400 hover:rouded-xl hover:rounded-xl m-5 transform hover:scale-105 transition-all  duration-300 '  />
+                    className=' cursor-pointer  hover:bg-gray-400 hover:rouded-xl hover:rounded-xl m-5 transform hover:scale-105 transition-all  duration-300 '  />
 
                 )
             }
@@ -75,7 +75,7 @@ export default  function  NavBar(){
 
             </div>
             <div className='flex  justify-center items-center ml-25'>
-                <TiThMenu size={20} />
+                <TiThMenu className='text-white' size={20} />
 
             </div>
             
